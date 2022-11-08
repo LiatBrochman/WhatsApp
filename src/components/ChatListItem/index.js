@@ -33,7 +33,6 @@ const styles = StyleSheet.create({
     height: 60,
     borderRadius: 30,
     marginRight: 10,
-
   },
   content:{
     flex: 1,

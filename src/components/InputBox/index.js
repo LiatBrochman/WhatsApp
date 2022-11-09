@@ -1,27 +1,33 @@
-import React from 'react';
 import { useState } from 'react';
-import { Text, View, StyleSheet, TextInput } from 'react-native';
-import {AntDesign, MaterialIcons} from '@expo/vector-icons';
+import { View, StyleSheet, TextInput } from 'react-native';
+import { AntDesign, MaterialIcons } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const InputBox = () => {
-
-const [newMessage, setNewMessage] = useState('')
+    const [newMessage, setNewMessage] = useState('');
 
     const onSend = () => {
-        console.warn("sending a new message: ", newMessage)
-        setNewMessage("");
+        console.warn('Sending a new message: ', newMessage);
+
+        setNewMessage('');
     };
 
     return (
-    <SafeAreaView edges={['bottom']} style={styles.container}>
-        {/* Icon */}
-<AntDesign name="plus" size={20} color='royalblue' />
-        {/* Text Input */}
-<TextInput  value={newMessage} onChangeText={setNewMessage} multiple style={styles.input} placeholder="type your message..." />
-        {/* Icon */}
-        <MaterialIcons onPress={onSend} style={styles.send} name="send" size={16} color='white' />
-    </SafeAreaView>
+        <SafeAreaView edges={['bottom']} style={styles.container}>
+            {/* Icon */}
+            <AntDesign name="plus" size={20} color="royalblue" />
+
+            {/* Text Input */}
+            <TextInput
+                value={newMessage}
+                onChangeText={setNewMessage}
+                style={styles.input}
+                placeholder="type your message..."
+            />
+
+            {/* Icon */}
+            <MaterialIcons onPress={onSend} style={styles.send} name="send" size={16} color="white" />
+        </SafeAreaView>
     );
 };
 
@@ -31,7 +37,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'whitesmoke',
         padding: 5,
         paddingHorizontal: 10,
-        alignItems: 'center'
+        alignItems: 'center',
     },
     input: {
         flex: 1,
@@ -39,6 +45,7 @@ const styles = StyleSheet.create({
         padding: 5,
         paddingHorizontal: 10,
         marginHorizontal: 10,
+
         borderRadius: 50,
         borderColor: 'lightgray',
         borderWidth: StyleSheet.hairlineWidth,
@@ -49,5 +56,6 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         overflow: 'hidden',
     },
-})
+});
+
 export default InputBox;
